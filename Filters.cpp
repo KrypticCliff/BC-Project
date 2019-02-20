@@ -17,5 +17,9 @@ std::vector<float> range_update(std::vector<float> lr_scan) {
 }
 
 std::vector<float> tm_update(std::vector<float> lr_scan) {
+    std::vector< <std::vector<float> > v_list;
 
+    for (x = 0; x < lr_scan.size(); x++) {
+        v_list.push_back(lr_scan);
+    }
 }
