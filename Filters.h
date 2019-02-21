@@ -3,9 +3,12 @@
 #ifndef FILTERS_H_
 #define FILTERS_H_
 
+typedef std::vector<float> vec_f;
+typedef std::vector<std::vector<float> > vvec_f;
+
 // Range Update
-std::vector<float> range_update(std::vector<float> lr_scan);
+vec_f range_update(vec_f lr_scan);
 // Temporal Medial Update
-std::vector<float> tm_update(std::vector<float> lr_scan);
+vvec_f tm_update(vvec_f lr_scan, int n_dist);
 
 #endif

@@ -5,12 +5,15 @@
 #include <time.h>
 #include "ScanSim.h"
 
+typedef std::vector<float> vec_f;
+typedef std::vector<std::vector<float> > vvec_f;
+
 //#define N_DIST_VALUE    5       // N Values of Distance Values in Vector
 #define MIN_RAND        0.0     // Min Random Generate Value
 #define MAX_RAND        60.0    // Max Random Generate Value
 
-std::vector<float> scanGen(int n_dist) {
-    std::vector<float> f_vec;
+vec_f scanGen(int n_dist) {
+    vec_f f_vec;
 
     // Random Generator Config
     srand(time(NULL));
@@ -26,7 +29,7 @@ std::vector<float> scanGen(int n_dist) {
 }
 
 // Prints All Values Stored in Simulated LIDAR Scan
-void getScan(std::vector< std::vector<float> > lr_scan) {
+void getScan(vvec_f lr_scan) {
     for (int x = 0; x < lr_scan.size() - 1; x++) {
         std::cout << "Set" << x << ":\n";
 
