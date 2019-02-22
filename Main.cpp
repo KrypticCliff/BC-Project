@@ -7,14 +7,14 @@
 typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;
 
-#define N_VEC_LIST  4   // N amount of Vectors
+#define N_VEC_LIST  8   // N amount of Vectors
 
 int main(int argc, char** argv) {
     vvec_f lr_scan;
     vvec_f lr_range;
     vvec_f lr_median;
 
-    int n_dist = 3;
+    int n_dist = 200;
     vvec_f vv_temp;
 
 // Creates Vector of Simulated Distance Vectors
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
         vec_f temp = scanGen(n_dist);
 
         // Delay Time by 1 Second
-        usleep(1000000);
+        usleep(3000);
 
         // Original Scan Test
         lr_scan.push_back(temp);
@@ -40,8 +40,11 @@ int main(int argc, char** argv) {
     std::cout << "Original Scan: \n";
     getScan(lr_scan);
 
-    std::cout << "\nRange Update: \n";
+    std::cout << "\nMedian Update: \n";
     getScan(lr_median);
+
+    std::cout << "\nRange Update: \n";
+    getScan(lr_range);
 
     return 0;
 }

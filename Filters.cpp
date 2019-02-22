@@ -40,28 +40,27 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
         for (int y = 0; y < n_dist; y++){
             vec_f v_temp;
 
-            for (int x = 0; x < size - 1; x++) {
+            for (int x = 0; x < size; x++) {
                 v_temp.push_back(vec_scan[x][y]);
             }
             std::sort(v_temp.begin(), v_temp.end());
-            float val_x = v_temp[v_temp.size() - 1];
-            float val_y = v_temp[v_temp.size()];
+            float val_x = v_temp[(v_temp.size() / 2) - 1];
+            float val_y = v_temp[(v_temp.size() / 2)];
 
-            lr_median.push_back((val_x + val_y) / 2);
+            lr_median.push_back(((val_x + val_y) / 2.0));
         }
         return lr_median;
-    }
 
-    if (size % 2 != 0) {
-        for (int y = 0; y < n_dist; y++) {
-            vec_f v_temp;
+    }   else if (size % 2 != 0) {
+            for (int y = 0; y < n_dist; y++) {
+                vec_f v_temp;
 
-            for (int x = 0; x < size - 1; x++) {
-                v_temp.push_back(vec_scan[x][y]);
+                for (int x = 0; x < size; x++) {
+                    v_temp.push_back(vec_scan[x][y]);
+                }
+                std::sort(v_temp.begin(), v_temp.end());
+                lr_median.push_back(v_temp[size / 2.0]);
             }
-            std::sort(v_temp.begin(), v_temp.end());
-            lr_median.push_back(v_temp[size / 2]);
+            return lr_median;
         }
-        return lr_median;
-    }
 }
