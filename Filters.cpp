@@ -23,28 +23,45 @@ vec_f range_update(vec_f lr_scan) {
     return lr_scan;
 }
 
-vvec_f tm_update(vvec_f lr_scan, int n_dist) {
-    vvec_f lr_median;
-    vec_f vec_push;
+vec_f tm_update(vvec_f vec_scan, int n_dist) {
+    vec_f lr_median;
+    size_t size = vec_scan.size();
 
-    for (int y = 0; y < n_dist; y++) {
-        vec_f temp;
-        size_t size;
-
-        for (int x = 0; x < lr_scan.size() ; x++ ) {
-            temp.push_back(lr_scan[x][y]);
+    if (size == 0) {
+        return 0;
+    } else if (size == 1) {
+        for (int x = 0; x < vec_scan[0].size(); x++) {
+            lr_median.push_back(vec_scan[0][x]);
         }
-        std::sort(temp.begin(), temp.end());
-        size = temp.size();
+        return lr_median;
+    }
 
-        if (temp_size % 2 != 0) {
-            vec_push.push_back[x][y](temp[(size / 2) + 1]);
-        } else if (temp_size % 2 = 0) {
-            
+    if (size % 2 == 0) {
+        for (int y = 0; y < n_dist; y++){
+            vec_f v_temp;
+
+            for (int x = 0; x < size - 1; x++) {
+                v_temp.push_back(vec_scan[x][y]);
+            }
+            std::sort(v_temp.begin(), v_temp.end());
+            float val_x = v_temp[v_temp.size() - 1];
+            float val_y = v_temp[v_temp.size()];
+
+            lr_median.push_back((val_x + val_y) / 2);
         }
+    }
 
+    if (size % 2 != 0) {
+        for (int y = 0; y < n_dist; y++) {
+            vec_f v_temp;
+
+            for (int x = 0; x < size - 1; x++) {
+                v_temp.push_back(vec_scan[x][y]);
+            }
+            std::sort(v_temp.begin(), v_temp.end());
+            lr_median.push_back(v_temp[size / 2]);
+        }
     }
 
     return lr_median;
-    }
 }
