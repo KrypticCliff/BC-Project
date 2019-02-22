@@ -28,7 +28,7 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
     size_t size = vec_scan.size();
 
     if (size == 0) {
-        return 0;
+        exit(EXIT_FAILURE);
     } else if (size == 1) {
         for (int x = 0; x < vec_scan[0].size(); x++) {
             lr_median.push_back(vec_scan[0][x]);
@@ -49,6 +49,7 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
 
             lr_median.push_back((val_x + val_y) / 2);
         }
+        return lr_median;
     }
 
     if (size % 2 != 0) {
@@ -61,7 +62,6 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
             std::sort(v_temp.begin(), v_temp.end());
             lr_median.push_back(v_temp[size / 2]);
         }
+        return lr_median;
     }
-
-    return lr_median;
 }
