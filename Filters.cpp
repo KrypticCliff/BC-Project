@@ -10,8 +10,7 @@
 typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;
 
-// If dist < 0.03 == MIN
-// If dist > 50   == MAX
+// dist < 0.03 == MIN | dist > 50 == MAX
 vec_f range_update(vec_f lr_scan) {
     for (int x = 0; x < lr_scan.size() - 1; x++) {
             if (lr_scan[x] < MIN_RANGE)
@@ -23,6 +22,23 @@ vec_f range_update(vec_f lr_scan) {
     return lr_scan;
 }
 
+/*
+    Uses external incrementing vvec_f to combine N-1 vectors.
+    n_dist (y) the amount of distant values in a vector[x][y] (matrix columns)
+
+            Vec_Scan
+        y0  y1  y2  y3  y4  y5
+    x0 [#] [$] [%] [^] [&] [*]
+    x1 [#] [$] [%] [^] [&] [*]
+    x2 [#] [$] [%] [^] [&] [*]
+    x3 [#] [$] [%] [^] [&] [*]
+
+    V_Temp (Ran through Loop & Sort)
+    x0 [#] [#] [#] [#] [#]
+    x1 [$] [$] [$] [$] [$]
+    .
+    x5 [*] [*] [*] [*] [*]
+*/
 vec_f tm_update(vvec_f vec_scan, int n_dist) {
     vec_f lr_median;
     size_t size = vec_scan.size();
@@ -30,12 +46,20 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
     if (size == 0) {
         exit(EXIT_FAILURE);
     } else if (size == 1) {
+        // Immediately Pass First Vector
         for (int x = 0; x < vec_scan[0].size(); x++) {
             lr_median.push_back(vec_scan[0][x]);
         }
         return lr_median;
     }
 
+/*
+    Checks if Vector list is Even. Vector has 2 Middle Values.
+    size 6 (6%2 = 0)
+    [#] [5] [6] [#]
+         ^   ^
+         5 + 6 = 11 / 2 = 5.5 -> pushed to return lr_median vector
+*/
     if (size % 2 == 0) {
         for (int y = 0; y < n_dist; y++){
             vec_f v_temp;
@@ -51,6 +75,13 @@ vec_f tm_update(vvec_f vec_scan, int n_dist) {
         }
         return lr_median;
 
+/*
+    Checks if Vector List is Odd. Vector has 1 Middle Value.
+    size 3 (3%2 = 1)
+    [#] [3] [#]
+         ^
+         3 -> pushed to return lr_median vector
+*/
     }   else if (size % 2 != 0) {
             for (int y = 0; y < n_dist; y++) {
                 vec_f v_temp;

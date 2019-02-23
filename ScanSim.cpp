@@ -28,7 +28,7 @@ vec_f scanGen(int n_dist) {
     return f_vec;
 }
 
-// Prints All Values Stored in Simulated LIDAR Scan
+// Prints All Values Stored in Simulated LIDAR Scan (3 decimals shown)
 void getScan(vvec_f lr_scan) {
     for (int x = 0; x < lr_scan.size(); x++) {
         std::cout << "Set" << x << ":\n";
