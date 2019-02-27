@@ -3,8 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Filters_Cliff.h"
-#include "ScanSim_Cliff.h"    // Remove after Testing
+#include "Filters.h"
 
 #define MIN_RANGE   0.03
 #define MAX_RANGE   50.0

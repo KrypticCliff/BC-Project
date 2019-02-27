@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <vector>
-#include "ScanSim_Cliff.h"
-#include "Filters_Cliff.h"
+#include "ScanSim.h"
+#include "Filters.h"
 
 typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;

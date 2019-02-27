@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#ifndef SCANSIM_CLIFF_H_
-#define SCANSIM_CLIFF_H_
+#ifndef SCANSIM_H_
+#define SCANSIM_H_
 
 std::vector<float> scanGen(int n_dist);
 void getScan(std::vector< std::vector<float> > lr_scan);

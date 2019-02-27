@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
-#include "ScanSim_Cliff.h"
+#include "ScanSim.h"
 
 typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;

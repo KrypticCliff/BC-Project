@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#ifndef FILTERS_CLIFF_H_
-#define FILTERS_CLIFF_H_
+#ifndef FILTERS_H_
+#define FILTERS_H_
 
 typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;
