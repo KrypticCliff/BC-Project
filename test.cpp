@@ -1,3 +1,6 @@
+// Coded by Clifton A Rawlings
+// Timestamp: March 12, 2019
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
