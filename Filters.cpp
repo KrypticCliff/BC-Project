@@ -13,7 +13,7 @@ typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;
 
 // dist < 0.03 == MIN | dist > 50 == MAX
-vec_f range_update(vec_f lr_scan) {
+vec_f range_update(vec_f &lr_scan) {
     for (int x = 0; x < lr_scan.size() - 1; x++) {
             if (lr_scan[x] < MIN_RANGE)
                 lr_scan[x] = MIN_RANGE;
@@ -41,7 +41,7 @@ vec_f range_update(vec_f lr_scan) {
 
     V_Temp is ran through loop, sort, & alg. respectfully
 */
-vec_f tm_update(vvec_f vec_scan, int n_dist) {
+vec_f tm_update(vvec_f &vec_scan, int n_dist) {
     vec_f lr_median;
     size_t size = vec_scan.size();
 
