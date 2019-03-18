@@ -10,8 +10,8 @@ typedef std::vector<float> vec_f;
 typedef std::vector<std::vector<float> > vvec_f;
 
 // Range Update
-vec_f range_update(vec_f lr_scan);
+vec_f range_update(vec_f &lr_scan);
 // Temporal Medial Update
-vec_f tm_update(vvec_f lr_scan, int n_dist);
+vec_f tm_update(vvec_f &lr_scan, int n_dist);
 
 #endif
