@@ -3,7 +3,7 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
 <b>Filters.cpp</b>
 
-	Filters_Cliff.cpp contains the source code for two functions that return a 1D vector: range_update(std::vector) and tm_update(std::vector<std::vector>). Both functions manipulate a passed vector (range_update) or vector of vectors (tm_update) according to the design mentioned within the challenge.
+	Filters.cpp contains the source code for two functions that return a 1D vector: range_update(std::vector) and tm_update(std::vector<std::vector>). Both functions manipulate a passed vector (range_update) or vector of vectors (tm_update) according to the design mentioned within the challenge.
 
 	std::vector<float> range_update(std::vector<float> )
 	
@@ -28,7 +28,7 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
 <b> ScanSim.cpp </b>
 	
-	ScanSim_Cliff.cpp contains the source file of two functions: scanGen(int) which returns a randomly generated 1D vector and getScan(std::vector<std::vector> >) for displaying the contents of a 2D vector to the terminal. 
+	ScanSim.cpp contains the source file of two functions: scanGen(int) which returns a randomly generated 1D vector and getScan(std::vector<std::vector> >) for displaying the contents of a 2D vector to the terminal. 
 
 	scanGen(int)
 
