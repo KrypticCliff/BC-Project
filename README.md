@@ -1,7 +1,7 @@
 # LIDAR-Scan-Generator
 Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
-<b>Filters_Cliff.cpp</b>
+<b>Filters.cpp</b>
 
 	Filters_Cliff.cpp contains the source code for two functions that return a 1D vector: range_update(std::vector) and tm_update(std::vector<std::vector>). Both functions manipulate a passed vector (range_update) or vector of vectors (tm_update) according to the design mentioned within the challenge.
 
@@ -26,7 +26,7 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
 
 
-<b> ScanSim_Cliff.cpp </b>
+<b> ScanSim.cpp </b>
 	
 	ScanSim_Cliff.cpp contains the source file of two functions: scanGen(int) which returns a randomly generated 1D vector and getScan(std::vector<std::vector> >) for displaying the contents of a 2D vector to the terminal. 
 
@@ -38,7 +38,7 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
 		getScan displays each value displayed in a 2D vector. A filled 2D vector must be passed into the function. The outer loop iterates through the “x” index of the passed 2D vector (lr_scan[x][y]) and also outputs which numbered set of vectors is displayed. The inner loop iterates through the “y” index of the 2D vector and displays the simulated value up to the third decimal place.
 
-<b>Rawlings-Clifton-Main.cpp</b>
+<b>Main.cpp</b>
 	
 	This file contains the instructions to create the distance value generator and apply each filter to the values. 
 
