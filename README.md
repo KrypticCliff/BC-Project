@@ -10,7 +10,7 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 		The range_update function is used for scanning a list of vectors and converting any simulated distance value that exceeds the max (50.0) or minimum (0.03) value to the required value. The function requires a 1D vector that contains N amount of values. A for-loop is used to iterate through each index based on  “vector size – 1”. 
 		If the value of vector[xi] is below float value 0.03, the value within the vector is modified to be exactly 0.03. If the value of vector[xi] is above 50.0, the value within the vector is modified to be exactly 50.0. Once the loop is completed, the modified vector is returned.
 
-	std::vector<float> tm_update(std::vector<std::vector<float> > )
+	<b>std::vector<float> tm_update(std::vector<std::vector<float> > )</b>
 		
 		The tm_update function iterates through a 2D vector and creates a new 1D vector containing the medians of previously combined 2D vectors. Two variables will need to be passed into the function: a 2D vector (which continuously increases its row size within the main.cpp file) and an integer containing N amount of distance values within each vector.
 
@@ -30,15 +30,15 @@ Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 	
 	ScanSim_Cliff.cpp contains the source file of two functions: scanGen(int) which returns a randomly generated 1D vector and getScan(std::vector<std::vector> >) for displaying the contents of a 2D vector to the terminal. 
 
-	scanGen(int)
+	<b>scanGen(int)</b>
 
 		This function is used to create a 1D vector of randomly generated numbers (between 0.0 and 60.0). An integer must be passed into the function to indicate the length of simulated values (N_DIST) needed to be inserted into the vector. A loop based on N_DIST will continuously push random values into a vector (f_vec). Once the loop finishes, the program will pause for approximately one second (usleep(1 x 106)) to create a new set of random numbers the next time the function is ran. 
 
-	getScan(std::vector<std::vector<float> > )
+	<b>getScan(std::vector<std::vector<float> > )</b>
 
 		getScan displays each value displayed in a 2D vector. A filled 2D vector must be passed into the function. The outer loop iterates through the “x” index of the passed 2D vector (lr_scan[x][y]) and also outputs which numbered set of vectors is displayed. The inner loop iterates through the “y” index of the 2D vector and displays the simulated value up to the third decimal place.
 
-Rawlings-Clifton-Main.cpp
+<b>Rawlings-Clifton-Main.cpp</b>
 	
 	This file contains the instructions to create the distance value generator and apply each filter to the values. 
 
