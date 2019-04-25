@@ -1,7 +1,7 @@
 # LIDAR-Scan-Generator
 Program creates a simulated LIDAR scan and includes a Max/Min and Mean filter.
 
-<h1>Filters.cpp</h1>
+<h2>Filters.cpp</h2>
 
 Filters.cpp contains the source code for two functions that return a 1D vector: range_update(std::vector) and tm_update(std::vector<std::vector>). Both functions manipulate a passed vector (range_update) or vector of vectors (tm_update) according to the design mentioned within the challenge.
 
@@ -21,7 +21,7 @@ If the vector size is even (size/2 has a remainder of 0), the vector contains tw
 
 If the vector size is odd (size/2 has a remainder of 1), the vector only has one middle value. The loop iterates through all of “x” indexed values and placed into v_temp. The vector undergoes sorting then has its middle value extracted using v_temp index “(size/2)”. The value is pushed into lr_median and continues the iteration through the “y” index. After reaching the end of “yn” index, lr_median is returned.
 
-<h1> ScanSim.cpp </h1>
+<h2> ScanSim.cpp </h2>
 	
 ScanSim.cpp contains the source file of two functions: scanGen(int) which returns a randomly generated 1D vector and getScan(std::vector<std::vector> >) for displaying the contents of a 2D vector to the terminal. 
 
@@ -33,7 +33,7 @@ This function is used to create a 1D vector of randomly generated numbers (betwe
 
 getScan displays each value displayed in a 2D vector. A filled 2D vector must be passed into the function. The outer loop iterates through the “x” index of the passed 2D vector (lr_scan[x][y]) and also outputs which numbered set of vectors is displayed. The inner loop iterates through the “y” index of the 2D vector and displays the simulated value up to the third decimal place.
 
-<h1>Main.cpp</h1>
+<h2>Main.cpp</h2>
 	
 This file contains the instructions to create the distance value generator and apply each filter to the values. 
 
